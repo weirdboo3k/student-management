@@ -24,6 +24,8 @@ public class StudentManagement {
             System.out.println("==== 学生管理システム ====");
             System.out.println("1. 学生を登録");
             System.out.println("2. 学生一覧を表示");
+            System.out.println("3. 学生情報を更新");
+            System.out.println("4. 学生を削除");
             System.out.println("0. 終了");
             System.out.print("選択：");
 
@@ -34,7 +36,11 @@ public class StudentManagement {
                 addStudent(sc);
             } else if (choice == 2) {
                 showStudents();
-            } else if (choice == 0) {
+            }else if (choice == 3) {
+                updateStudent(sc);
+            }else if (choice == 4) {
+                deleteStudent(sc);
+            }else if (choice == 0) {
                 System.out.println("終了します。");
                 break;
             } else {
@@ -72,4 +78,40 @@ public class StudentManagement {
             );
         }
     }
+    static void deleteStudent(Scanner sc) {
+    System.out.print("削除する学生ID：");
+    int id = sc.nextInt();
+    sc.nextLine();
+
+    for (Student s : studentList) {
+        if (s.id == id) {
+            studentList.remove(s);
+            System.out.println("学生情報を削除しました。");
+            return;
+        }
+    }
+
+    System.out.println("該当する学生が見つかりません。");
+}
+    static void updateStudent(Scanner sc) {
+    System.out.print("更新する学生ID：");
+    int id = sc.nextInt();
+    sc.nextLine();
+
+    for (Student s : studentList) {
+        if (s.id == id) {
+            System.out.print("新しい名前：");
+            s.name = sc.nextLine();
+
+            System.out.print("新しい年齢：");
+            s.age = sc.nextInt();
+
+            System.out.println("学生情報を更新しました。");
+            return;
+        }
+    }
+
+    System.out.println("該当する学生が見つかりません。");
+}
+
 }
