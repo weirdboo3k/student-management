@@ -443,10 +443,10 @@ The codebase currently has no automated tests. Consider adding:
 ## Summary
 
 ### Must Fix (Critical Priority)
-1. ✅ Fix data corruption bug in updateStudent() - validate before updating
-2. ✅ Fix Scanner buffer pollution in addStudent() - restructure duplicate check
-3. ✅ Add student ID validation - reject non-positive IDs
-4. ✅ Fix README.md merge conflict marker
+1. ✅ **FIXED** - Data corruption bug in updateStudent() - validate before updating
+2. ✅ **FIXED** - Scanner buffer pollution prevented by restructuring: duplicate check now occurs immediately after ID input, before prompting for other fields
+3. ✅ **FIXED** - Add student ID validation - reject non-positive IDs
+4. ✅ **FIXED** - Fix README.md merge conflict marker
 
 ### Should Consider (High Priority)
 1. Add private fields with getters/setters to Student class
