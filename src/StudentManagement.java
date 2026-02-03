@@ -89,6 +89,12 @@ public class StudentManagement {
             int id = sc.nextInt();
             sc.nextLine(); // バッファをクリア
 
+            // IDの妥当性チェック：正の数値か確認
+            if (id <= 0) {
+                System.out.println("エラー：IDは正の数値を入力してください。");
+                return;
+            }
+
             // IDの重複チェック：同じIDが既に存在する場合はエラー
             for (Student s : studentList) {
                 if (s.id == id) {
@@ -190,47 +196,54 @@ public class StudentManagement {
                 if (s.id == id) {
                     // 新しい名前を入力
                     System.out.print("新しい名前：");
-                    s.name = sc.nextLine();
+                    String newName = sc.nextLine();
 
                     // 新しい年齢を入力
                     System.out.print("新しい年齢：");
-                    s.age = sc.nextInt();
+                    int newAge = sc.nextInt();
                     
                     // 年齢の妥当性チェック：0〜150の範囲内か確認
-                    if (s.age < 0 || s.age > 150) {
+                    if (newAge < 0 || newAge > 150) {
                         System.out.println("エラー：年齢は0〜150の範囲で入力してください。");
                         return;
                     }
 
                     // 数学の新しい点数を入力
                     System.out.print("数学の点数：");
-                    s.math = sc.nextInt();
+                    int newMath = sc.nextInt();
                     
                     // 点数の妥当性チェック（数学）：0〜100の範囲内か確認
-                    if (s.math < 0 || s.math > 100) {
+                    if (newMath < 0 || newMath > 100) {
                         System.out.println("エラー：点数は0〜100の範囲で入力してください。");
                         return;
                     }
 
                     // 英語の新しい点数を入力
                     System.out.print("英語の点数：");
-                    s.english = sc.nextInt();
+                    int newEnglish = sc.nextInt();
                     
                     // 点数の妥当性チェック（英語）：0〜100の範囲内か確認
-                    if (s.english < 0 || s.english > 100) {
+                    if (newEnglish < 0 || newEnglish > 100) {
                         System.out.println("エラー：点数は0〜100の範囲で入力してください。");
                         return;
                     }
 
                     // 理科の新しい点数を入力
                     System.out.print("理科の点数：");
-                    s.science = sc.nextInt();
+                    int newScience = sc.nextInt();
                     
                     // 点数の妥当性チェック（理科）：0〜100の範囲内か確認
-                    if (s.science < 0 || s.science > 100) {
+                    if (newScience < 0 || newScience > 100) {
                         System.out.println("エラー：点数は0〜100の範囲で入力してください。");
                         return;
                     }
+
+                    // 全ての検証が成功した後でのみ更新
+                    s.name = newName;
+                    s.age = newAge;
+                    s.math = newMath;
+                    s.english = newEnglish;
+                    s.science = newScience;
 
                     System.out.println("学生情報を更新しました。");
                     return;

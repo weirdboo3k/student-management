@@ -1,6 +1,3 @@
-
-# student-management
->>>>>>> 6cfcc3f92351ddd69e019555c165c929194ec6ca
 # Student Management Console App / 学生管理コンソールアプリ
 Java console application to manage student records with full CRUD functionality, including scores for multiple subjects.  
 Javaコンソールアプリで学生情報を管理し、CRUD機能に加えて複数科目の点数管理も可能です。
